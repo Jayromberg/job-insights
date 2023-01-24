@@ -37,7 +37,13 @@ def get_unique_job_types(path: str) -> List[str]:
     list
         List of unique job types
     """
-    raise NotImplementedError
+    unique_job = []
+
+    for row in read(path):
+        if row['job_type'] not in unique_job:
+            unique_job.append(row['job_type'])
+
+    return list(unique_job)
 
 
 def filter_by_job_type(jobs: List[Dict], job_type: str) -> List[Dict]:
