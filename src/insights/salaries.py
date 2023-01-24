@@ -20,9 +20,12 @@ def get_max_salary(path: str) -> int:
     max_salary = 0
 
     for row in read(path):
-        if row['max_salary'].isnumeric() and int(row['max_salary']) > max_salary:
-            max_salary = int(row['max_salary'])
-    
+        if (
+            row["max_salary"].isnumeric()
+            and int(row["max_salary"]) > max_salary
+        ):
+            max_salary = int(row["max_salary"])
+
     return int(max_salary)
 
 
@@ -44,11 +47,14 @@ def get_min_salary(path: str) -> int:
     min_salary = 0
 
     for row in read(path):
-        if row['min_salary'].isnumeric() and min_salary == 0:
-            min_salary = int(row['min_salary'])
-        if row['min_salary'].isnumeric() and int(row['min_salary']) < min_salary:
-            min_salary = int(row['min_salary'])
-    
+        if row["min_salary"].isnumeric() and min_salary == 0:
+            min_salary = int(row["min_salary"])
+        if (
+            row["min_salary"].isnumeric()
+            and int(row["min_salary"]) < min_salary
+        ):
+            min_salary = int(row["min_salary"])
+
     return int(min_salary)
 
 
@@ -79,8 +85,7 @@ def matches_salary_range(job: Dict, salary: Union[int, str]) -> bool:
 
 
 def filter_by_salary_range(
-    jobs: List[dict],
-    salary: Union[str, int]
+    jobs: List[dict], salary: Union[str, int]
 ) -> List[Dict]:
     """Filters a list of jobs by salary range
 
