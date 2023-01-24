@@ -15,7 +15,7 @@ def read_brazilian_file(path: str) -> List[Dict]:
     Returns
     -------
     list
-        List of rows as dicts
+        List of rows as dict
     """
     dict_jobs = jobs.read(path)
     for job in dict_jobs:
